@@ -1,0 +1,82 @@
+* {
+  font-family: Poppins, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  display: flex;
+  padding-left: 2%;
+}
+.stepper-wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.step-name {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: uppercase;
+
+  color: #b5b5b5;
+
+  opacity: 0.6;
+}
+/*criar a linha */
+.stepper-item::after {
+  position: absolute;
+  content: '';
+  border-bottom: 2px solid #0FD5A3;
+  width: 100%;
+  top: 10px;
+  left: 50%;
+  z-index: -1;
+}
+/*criar os círculos na linha*/
+.stepper-item .step-counter {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  margin-bottom: 6px;
+  border: 2px solid #0FD5A3;
+}
+.stepper-item.active {
+  font-weight: bold;
+}
+.inner-circle{
+  display: none;
+}
+/* preenche os passos completados*/
+.stepper-item.completed .inner-circle{
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #0FD5A3;
+  position: absolute;
+  transform: translateY(5px);
+}
+/* muda a cor do texto completado*/
+.stepper-item.completed .step-name{
+  color: #0FD5A3;
+  opacity: 1;
+}
+
+
+.stepper-item:first-child::before {
+  content: none;
+}
+.stepper-item:last-child::after {
+  content: none;
+}
